@@ -1,7 +1,6 @@
 import os
 curpath = os.path.abspath(os.curdir)
-comDir = curpath+"/adana"
-allFiles = [f for f in os.listdir(comDir) if os.path.isfile(os.path.join(comDir,f))]
+allFiles = [f for f in os.listdir(comDir) if os.path.isfile(os.path.join(curpath,f))]
 commentList = []
 for fil in allFiles:
 	if "comment" in fil:
