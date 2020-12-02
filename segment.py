@@ -78,12 +78,11 @@ def avgXMinPoint(x,pointList):
 	
 def segmentAccToPoint(x, checkFunction):
 	curpath = os.path.abspath(os.curdir)
-	comDir = curpath+"/adana"
 	outputComments = []
-	allFiles = [f for f in os.listdir(comDir) if os.path.isfile(os.path.join(comDir,f))]
+	allFiles = [f for f in os.listdir(curpath) if os.path.isfile(os.path.join(curpath,f))]
 	for fil in allFiles:
 		try:
-			f = open(comDir+"/"+fil)
+			f = open(curpath+"/"+fil)
 			if not "comment" in fil:
 				continue
 			for line in f:
@@ -104,30 +103,29 @@ def segmentForAllPoints():
 segmentForAllPoints()
 		
 curpath = os.path.abspath(os.curdir)
-comDir = curpath+"/adana"
-#allFiles = [f for f in os.listdir(comDir) if os.path.isfile(os.path.join(comDir,f))]
-#cuisines = {}
-#for fil in allFiles:
-#	if "menu" in fil:
-#		try:
-#			f = open(comDir+"/"+fil)
-#			fLine = f.readline().replace('\n','')
-#			if fLine in cuisines:
-#				cuisines[fLine].append(fil)
-#			else:
-#				cuisines[fLine] = list()
-#		except OSError as e:
-#			pass
-#for elements in cuisines:
-#	outFile = open(elements+".txt","w+")
-#	resList = cuisines[elements]
-#	for rest in resList:
-#		try:
-#			comF = open(comDir+"/"+rest.replace("menu","comment"))
-#			for line in comF:
-#				outFile.write(line)
-#		except OSError as e:
-#			pass
-#	convert(elements+".txt")
+allFiles = [f for f in os.listdir(curpath) if os.path.isfile(os.path.join(curpath,f))]
+cuisines = {}
+for fil in allFiles:
+	if "menu" in fil:
+		try:
+			f = open(curpath+"/"+fil)
+			fLine = f.readline().replace('\n','')
+			if fLine in cuisines:
+				cuisines[fLine].append(fil)
+			else:
+				cuisines[fLine] = list()
+		except OSError as e:
+			pass
+for elements in cuisines:
+	outFile = open(elements+".txt","w+")
+	resList = cuisines[elements]
+	for rest in resList:
+		try:
+			comF = open(curpath+"/"+rest.replace("menu","comment"))
+			for line in comF:
+				outFile.write(line)
+		except OSError as e:
+			pass
+	convert(elements+".txt")
 
 		
