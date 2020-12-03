@@ -3,11 +3,15 @@ import os
 class commentsSpider(scrapy.Spider):
 	name = "commentsSpider"
 	def getCities(self):
-	
-		cities = ["kastamonu","kayseri","kirklareli","kirsehir","kocaeli","konya","kutahya","malatya","manisa","kahramanmaras",
-			"mardin","mersin","mugla","nevsehir","nigde","ordu","rize","sakarya","samsun","siirt","sinop","sivas","tekirdag",
-			"tokat","trabzon","sanliurfa","usak","van","yozgat","zonguldak","aksaray","karaman","kirikkale","batman","bartin",
-			"igdir","yalova","karabuk","osmaniye","duzce"]
+		cities = ["adiyaman","afyon","agri","amasya","ankara","antalya",
+		"aydin","balikesir","bilecik","bingol","bolu","burdur",
+		"bursa","canakkale","cankiri","corum","denizli","diyarbakir",
+		"edirne","elazig","erzincan","erzurum","eskisehir","gaziantep",
+		"giresun","gümüshane","hatay","isparta","mersin","istanbul","izmir",
+		"kastamonu","kayseri","kirklareli","kirsehir","kocaeli","konya","kutahya","malatya","manisa","kahramanmaras",
+		"mardin","mersin","mugla","nevsehir","nigde","ordu","rize","sakarya","samsun","siirt","sinop","sivas","tekirdag",
+		"tokat","trabzon","sanliurfa","usak","van","yozgat","zonguldak","aksaray","karaman","kirikkale","batman","bartin",
+		"igdir","yalova","karabuk","osmaniye","duzce"]
 		return cities
 	def start_requests(self):
 		urls = []
